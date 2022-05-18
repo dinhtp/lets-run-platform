@@ -13,7 +13,7 @@ var cfgFile string
 
 var rootCmd = &cobra.Command{
     Use:   "lets-run-platform",
-    Short: "A brief description of your application",
+    Short: "Run platform service root command",
 }
 
 func Execute() {

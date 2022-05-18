@@ -8,9 +8,9 @@ import (
 
 var migrationCmd = &cobra.Command{
 	Use:   "migration",
-	Short: "A brief description of your command",
+	Short: "Run platform service migration command",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("migration called")
+		fmt.Println("Run platform service serve command called")
 	},
 }
 

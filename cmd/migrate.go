@@ -8,12 +8,12 @@ import (
 
 var migrateCmd = &cobra.Command{
 	Use:   "migrate",
-	Short: "A brief description of your command",
+	Short: "Run platform service migrate command",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("migrate called")
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(migrateCmd)
+	migrationCmd.AddCommand(migrateCmd)
 }
