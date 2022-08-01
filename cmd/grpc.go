@@ -28,7 +28,7 @@ var grpcCmd = &cobra.Command{
 }
 
 func init() {
-    rootCmd.AddCommand(grpcCmd)
+    serveCmd.AddCommand(grpcCmd)
 
     grpcCmd.Flags().StringP("backend", "", "grpc-address", "gRPC address")
     grpcCmd.Flags().StringP("mysqlDsn", "", "mysql-dsn", "mysql connection string")
