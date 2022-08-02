@@ -18,21 +18,34 @@ func NewService(db *gorm.DB) *Service {
 }
 
 func (s Service) Get(ctx context.Context, r *pb.OnePlatformRequest) (*pb.Platform, error) {
-    panic("implement me")
+    // TODO: implement logic
+    return &pb.Platform{}, nil
 }
 
 func (s Service) Create(ctx context.Context, r *pb.Platform) (*pb.Platform, error) {
-    panic("implement me")
+    if err := validateCreate(r); err != nil {
+        return nil, err
+    }
+
+    result, err := NewRepository(s.db).Create(preparePlatformToCreate(r))
+    if err != nil {
+        return nil, err
+    }
+
+    return preparePlatformToResponse(result), nil
 }
 
 func (s Service) Update(ctx context.Context, r *pb.Platform) (*pb.Platform, error) {
-    panic("implement me")
+    // TODO: implement logic
+    return &pb.Platform{}, nil
 }
 
 func (s Service) Delete(ctx context.Context, r *pb.OnePlatformRequest) (*types.Empty, error) {
-    panic("implement me")
+    // TODO: implement logic
+    return &types.Empty{}, nil
 }
 
 func (s Service) List(ctx context.Context, r *pb.ListPlatformRequest) (*pb.ListPlatformResponse, error) {
-    panic("implement me")
+    // TODO: implement logic
+    return &pb.ListPlatformResponse{}, nil
 }
