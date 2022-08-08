@@ -6,6 +6,10 @@ This service will contain 2 sub-services which are the Rest and gRPC service. Re
 while gRPC will handle the logic and data transaction to the MySQL database. This services will mainly serve as a 
 reference data point for the **customer** service to function properly.
 
+The platform model specification can be referred below:
+![platform model](./asset/platform.png)
+
+
 ## II. API Output
 ### Platform API Output
 #### Get a platform by ID.
