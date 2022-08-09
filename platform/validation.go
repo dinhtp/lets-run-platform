@@ -7,6 +7,14 @@ import (
     pb "github.com/dinhtp/lets-run-pbtype/gateway"
 )
 
+func validateOne(r *pb.OnePlatformRequest) error {
+    if r.GetId() == "" {
+        return status.Error(codes.InvalidArgument, "platform url is required")
+    }
+
+    return nil
+}
+
 func validateCreate(r *pb.Platform) error {
     if r.GetName() == "" {
         return status.Error(codes.InvalidArgument, "platform name is required")

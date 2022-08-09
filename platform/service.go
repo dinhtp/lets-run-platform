@@ -2,6 +2,7 @@ package platform
 
 import (
     "context"
+    "strconv"
 
     "github.com/gogo/protobuf/types"
     "gorm.io/gorm"
@@ -18,8 +19,18 @@ func NewService(db *gorm.DB) *Service {
 }
 
 func (s Service) Get(ctx context.Context, r *pb.OnePlatformRequest) (*pb.Platform, error) {
-    // TODO: implement logic
-    return &pb.Platform{}, nil
+    if err := validateOne(r); err != nil {
+        return nil, err
+    }
+
+    id, _ := strconv.Atoi(r.GetId())
+
+    result, err := NewRepository(s.db).FindOne(id)
+    if err != nil {
+        return nil, err
+    }
+
+    return preparePlatformToResponse(result), nil
 }
 
 func (s Service) Create(ctx context.Context, r *pb.Platform) (*pb.Platform, error) {
